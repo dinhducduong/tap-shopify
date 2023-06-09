@@ -32,9 +32,6 @@
       "format": "date-time",
       "type": ["null", "string"]
     },
-    "template_suffix": {
-      "type": "string"
-    },
     "status": {
       "type": "string"
     },
