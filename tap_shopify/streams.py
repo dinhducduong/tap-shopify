@@ -201,7 +201,7 @@ class ProductsStream(tap_shopifyStream):
                     "title": it['title']
                 })
             data_convert.append(data)
-        return data_convert
+        yield from extract_jsonpath(self.records_jsonpath, input=data_convert)
 
 
 class TransactionsStream(tap_shopifyStream):
