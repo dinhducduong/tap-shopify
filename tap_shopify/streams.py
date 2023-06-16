@@ -2,9 +2,11 @@
 
 from decimal import Decimal
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Iterable, Optional
 from urllib.parse import parse_qsl, urlsplit
+import requests
 
+from singer_sdk.helpers.jsonpath import extract_jsonpath
 from singer_sdk.helpers._classproperty import classproperty
 from singer_sdk.typing import JSONTypeHelper
 
@@ -182,6 +184,14 @@ class ProductsStream(tap_shopifyStream):
     replication_key = "updated_at"
     replication_method = "INCREMENTAL"
     schema_filepath = SCHEMAS_DIR / "product.json"
+    
+    def parse_response(self, response: requests.Response) -> Iterable[dict]:
+        def preprocess_input(data):
+            # update your logic here
+            return data
+        processed_data = response.json()
+        
+        yield from extract_jsonpath(self.records_jsonpath, input=processed_data)
 
 
 class TransactionsStream(tap_shopifyStream):
