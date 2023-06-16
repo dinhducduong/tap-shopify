@@ -190,7 +190,7 @@ class ProductsStream(tap_shopifyStream):
             # update your logic here
             return data
         processed_data = response.json()
-        
+        print("data", processed_data)
         yield from extract_jsonpath(self.records_jsonpath, input=processed_data)
 
 
