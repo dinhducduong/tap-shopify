@@ -186,11 +186,10 @@ class ProductsStream(tap_shopifyStream):
     schema_filepath = SCHEMAS_DIR / "product.json"
 
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
-        yield from extract_jsonpath(self.records_jsonpath, input={
-            "id": 45645635345,
-            "name": "kfkdfksfordsv sfsdfsd",
-            "sku": "gldfgoerd",
-        })
+        """Parse the response and return an iterator of result rows."""
+        # TODO: Parse response body and return a set of records.
+        print("response.json()",response.json())
+        yield from extract_jsonpath(self.records_jsonpath, input=response.json())
 
 
 class TransactionsStream(tap_shopifyStream):
