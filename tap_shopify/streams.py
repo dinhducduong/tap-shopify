@@ -199,7 +199,7 @@ class ProductsStream(tap_shopifyStream):
             })
         
         data['products'] = data_convert
-        yield from extract_jsonpath(self.records_jsonpath, input=data.json())
+        yield from extract_jsonpath(self.records_jsonpath, input=response.json())
 
 
 class TransactionsStream(tap_shopifyStream):
