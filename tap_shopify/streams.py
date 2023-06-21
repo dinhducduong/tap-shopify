@@ -196,11 +196,6 @@ class ProductsStream(tap_shopifyStream):
                 "name": item['title'],
                 "sku": item['handle']
             })
-        parse_data['record'] = {
-            "id": parse_data['record']['id'],
-            "name": parse_data['record']['title'],
-            "sku": parse_data['record']['handle']
-        }
         parse_data['products'] = data_convert
         print("recordrecordrecordrecord", parse_data)
         yield from extract_jsonpath(self.records_jsonpath, input=parse_data)
