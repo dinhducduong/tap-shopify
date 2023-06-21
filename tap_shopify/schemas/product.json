@@ -5,12 +5,6 @@
     "id": {
       "type": ["integer", "null"]
     },
-    "name": {
-      "type": ["string", "null"]
-    },
-    "title": {
-      "type": ["string", "null"]
-    },
     "sku": {
       "type": ["string", "null"]
     }
