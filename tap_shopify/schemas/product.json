@@ -7,20 +7,6 @@
     },
     "sku": {
       "type": ["string", "null"]
-    },
-    "options": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "product_sku": {
-            "type": ["string", "null"]
-          },
-          "title": {
-            "type": ["string", "null"]
-          }
-        }
-      }
     }
   }
 }
