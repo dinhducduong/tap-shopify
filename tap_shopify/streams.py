@@ -197,7 +197,6 @@ class ProductsStream(tap_shopifyStream):
             }
             for variant in item['variants']:
                 data['options'].append({
-                    "product_sku": variant['sku'],
                     "title": variant['title']
                 })
             data_convert.append(data)

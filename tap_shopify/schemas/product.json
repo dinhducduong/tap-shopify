@@ -16,9 +16,6 @@
       "items": {
         "type": "object",
         "properties": {
-          "product_sku": {
-            "type": ["string", "null"]
-          },
           "title": {
             "type": ["string", "null"]
           }
