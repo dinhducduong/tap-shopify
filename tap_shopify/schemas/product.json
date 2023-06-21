@@ -10,17 +10,6 @@
     },
     "sku": {
       "type": ["string", "null"]
-    },
-    "options": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": ["string", "null"]
-          }
-        }
-      }
     }
   }
 }

@@ -193,12 +193,7 @@ class ProductsStream(tap_shopifyStream):
                 "id": item['id'],
                 "name": item['title'],
                 "sku": item['handle'],
-                "options": [],
             }
-            for variant in item['variants']:
-                data['options'].append({
-                    "title": variant['title']
-                })
             data_convert.append(data)
         yield from extract_jsonpath(self.records_jsonpath, input=data_convert)
 
