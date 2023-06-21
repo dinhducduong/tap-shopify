@@ -11,5 +11,10 @@
     "sku": {
       "type": ["string", "null"]
     }
-  }
+  },
+  "required": [
+    "id",
+    "name",
+    "sku"
+  ]
 }
