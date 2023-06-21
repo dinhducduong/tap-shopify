@@ -190,8 +190,7 @@ class ProductsStream(tap_shopifyStream):
             data_convert = []
             for item in data['products']:
                 data_convert.append({
-                    'id': item['id'],
-                    'sku': item['handle'],
+                    "id": item['id']
                 })
             return data_convert
         processed_data = response.json()
