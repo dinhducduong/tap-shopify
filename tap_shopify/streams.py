@@ -60,13 +60,24 @@ class ProductsStream(tap_shopifyStream):
                     "created_at": item['created_at'],
                     "updated_at": item['updated_at'],
                     "options": [],
+                    "media_gallery_entries": []
                 }
                 for variant in item['variants']:
                     data['options'].append({
                         "product_sku": variant['sku'],
                         "title": variant['title'],
+                        "price": variant['price'],
+                        "sku": variant['sku'],
                         "created_at": variant['created_at'],
                         "updated_at": variant['updated_at'],
+                    })
+                for image in item['images']:
+                    data['media_gallery_entries'].append({
+                        "id": image['id'],
+                        "position": image['position'],
+                        "file": image['src'],
+                        "created_at": image['created_at'],
+                        "updated_at": image['updated_at'],
                     })
                 data_convert.append(data)
             return data_convert
