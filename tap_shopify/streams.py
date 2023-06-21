@@ -185,20 +185,20 @@ class ProductsStream(tap_shopifyStream):
     replication_method = "INCREMENTAL"
     schema_filepath = SCHEMAS_DIR / "product.json"
 
-    def parse_response(self, record: dict) -> dict:
+    def parse_response(self, response: requests.Response) -> Iterable[dict]:
         """Parse the response and return an iterator of result rows."""
         # TODO: Parse response body and return a set of records.
-        # data_convert = []
-        # for item in record['products']:
-        #     data_convert.append({
-        #         "id": item['id'],
-        #         "name": item['title'],
-        #         "sku": item['handle']
-        #     })
+        data_convert = []
+        for item in response['products']:
+            data_convert.append({
+                "id": item['id'],
+                "name": item['title'],
+                "sku": item['handle']
+            })
         
         # record['products'] = data_convert
-        print("recordrecordrecordrecord",record.json())
-        yield from extract_jsonpath(self.records_jsonpath, input=record)
+        print("recordrecordrecordrecord",data_convert)
+        yield from extract_jsonpath(self.records_jsonpath, input=response.json())
 
 
 class TransactionsStream(tap_shopifyStream):
