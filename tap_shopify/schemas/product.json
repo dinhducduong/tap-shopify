@@ -17,6 +17,9 @@
     "updated_at": {
       "type": "string"
     },
+    "source": {
+      "type": "string"
+    },
     "options": {
       "type": "array",
       "items": {
@@ -26,6 +29,29 @@
             "type": ["string", "null"]
           },
           "title": {
+            "type": ["string", "null"]
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "media_gallery_entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": ["integer", "null"]
+          },
+          "position": {
+            "type": ["integer", "null"]
+          },
+          "file": {
             "type": ["string", "null"]
           },
           "created_at": {

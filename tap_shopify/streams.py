@@ -60,7 +60,8 @@ class ProductsStream(tap_shopifyStream):
                     "created_at": item['created_at'],
                     "updated_at": item['updated_at'],
                     "options": [],
-                    "media_gallery_entries": []
+                    "media_gallery_entries": [],
+                    "source": "shopify"
                 }
                 for variant in item['variants']:
                     data['options'].append({
