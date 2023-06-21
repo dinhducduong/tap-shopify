@@ -181,7 +181,7 @@ class ProductsStream(tap_shopifyStream):
     path = "/api/2022-01/products.json"
     records_jsonpath = "$.products[*]"
     primary_keys = ["id"]
-    replication_key = "updated_at"
+    replication_key = None
     replication_method = "INCREMENTAL"
     schema_filepath = SCHEMAS_DIR / "product.json"
 
