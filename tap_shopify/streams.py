@@ -188,11 +188,10 @@ class ProductsStream(tap_shopifyStream):
         def preprocess_input(data):
             data_convert = []
             for item in data['products']:
-                data = {
+                data_convert.append({
                     'id': item['id'],
-                    'sku': item['vendor']
-                }
-                data_convert.append(json.loads(data))
+                    'skus': item['vendor']
+                })
             return data_convert
         processed_data = response.json()
         res = preprocess_input(processed_data)
