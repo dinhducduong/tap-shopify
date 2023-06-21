@@ -198,19 +198,231 @@ class ProductsStream(tap_shopifyStream):
         yield from extract_jsonpath(self.records_jsonpath, input={
             "products": [
                 {
-                    "id": 7300082008153,
-                    "name": "Example Hat",
-                    "sku": "example-hat"
-                },
-                {
                     "id": 7300081942617,
-                    "name": "Example Pants",
-                    "sku": "example-pants"
+                    "body_html": "",
+                    "vendor": "Acme",
+                    "product_type": "Pants",
+                    "created_at": "2023-06-09T10:19:56+07:00",
+                    "handle": "example-pants",
+                    "updated_at": "2023-06-09T10:19:57+07:00",
+                    "published_at": None,
+                    "template_suffix": None,
+                    "status": "draft",
+                    "published_scope": "web",
+                    "tags": "mens pants example",
+                    "admin_graphql_api_id": "gid://shopify/Product/7300081942617",
+                    "variants": [
+                        {
+                            "id": 40502939484249,
+                            "product_id": 7300081942617,
+                            "title": "Jeans, W32H34",
+                            "price": "50",
+                            "sku": None,
+                            "position": 1,
+                            "inventory_policy": "deny",
+                            "compare_at_price": "58",
+                            "fulfillment_service": "manual",
+                            "inventory_management": None,
+                            "option1": "Jeans, W32H34",
+                            "option2": None,
+                            "option3": None,
+                            "created_at": "2023-06-09T10:19:56+07:00",
+                            "updated_at": "2023-06-09T10:19:56+07:00",
+                            "taxable": True,
+                            "barcode": None,
+                            "grams": 1250,
+                            "image_id": None,
+                            "weight": 1250.0,
+                            "weight_unit": "g",
+                            "inventory_item_id": 42597128831065,
+                            "inventory_quantity": 0,
+                            "old_inventory_quantity": 0,
+                            "requires_shipping": True,
+                            "admin_graphql_api_id": "gid://shopify/ProductVariant/40502939484249"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 9333169782873,
+                            "product_id": 7300081942617,
+                            "name": "Title",
+                            "position": 1,
+                            "values": [
+                                "Jeans, W32H34"
+                            ]
+                        }
+                    ],
+                    "images": [
+                        {
+                            "id": 31643643871321,
+                            "product_id": 7300081942617,
+                            "position": 1,
+                            "created_at": "2023-06-09T10:19:56+07:00",
+                            "updated_at": "2023-06-09T10:19:56+07:00",
+                            "alt": None,
+                            "width": 5000,
+                            "height": 3333,
+                            "src": "https://cdn.shopify.com/s/files/1/0575/8943/2409/products/distressed-kids-jeans.jpg?v=1686280796",
+                            "variant_ids": [],
+                            "admin_graphql_api_id": "gid://shopify/ProductImage/31643643871321"
+                        }
+                    ],
+                    "image": {
+                        "id": 31643643871321,
+                        "product_id": 7300081942617,
+                        "position": 1,
+                        "created_at": "2023-06-09T10:19:56+07:00",
+                        "updated_at": "2023-06-09T10:19:56+07:00",
+                        "alt": None,
+                        "width": 5000,
+                        "height": 3333,
+                        "src": "https://cdn.shopify.com/s/files/1/0575/8943/2409/products/distressed-kids-jeans.jpg?v=1686280796",
+                        "variant_ids": [],
+                        "admin_graphql_api_id": "gid://shopify/ProductImage/31643643871321"
+                    }
                 },
                 {
                     "id": 7300081909849,
-                    "name": "Example T-Shirt",
-                    "sku": "example-t-shirt"
+                    "title": "Example T-Shirt",
+                    "body_html": "",
+                    "vendor": "Acme",
+                    "product_type": "Shirts",
+                    "created_at": "2023-06-09T10:19:54+07:00",
+                    "handle": "example-t-shirt",
+                    "updated_at": "2023-06-09T10:19:55+07:00",
+                    "published_at": "2023-06-09T10:19:52+07:00",
+                    "template_suffix": None,
+                    "status": "active",
+                    "published_scope": "web",
+                    "tags": "mens t-shirt example",
+                    "admin_graphql_api_id": "gid://shopify/Product/7300081909849",
+                    "variants": [
+                        {
+                            "id": 40502939385945,
+                            "product_id": 7300081909849,
+                            "title": "Lithograph - Height: 9\" x Width: 12\"",
+                            "price": "25",
+                            "sku": None,
+                            "position": 1,
+                            "inventory_policy": "deny",
+                            "compare_at_price": None,
+                            "fulfillment_service": "manual",
+                            "inventory_management": None,
+                            "option1": "Lithograph - Height: 9\" x Width: 12\"",
+                            "option2": None,
+                            "option3": None,
+                            "created_at": "2023-06-09T10:19:54+07:00",
+                            "updated_at": "2023-06-09T10:19:54+07:00",
+                            "taxable": True,
+                            "barcode": None,
+                            "grams": 3629,
+                            "image_id": None,
+                            "weight": 3629.0,
+                            "weight_unit": "g",
+                            "inventory_item_id": 42597128732761,
+                            "inventory_quantity": 0,
+                            "old_inventory_quantity": 0,
+                            "requires_shipping": True,
+                            "admin_graphql_api_id": "gid://shopify/ProductVariant/40502939385945"
+                        },
+                        {
+                            "id": 40502939418713,
+                            "product_id": 7300081909849,
+                            "title": "Small",
+                            "price": "20",
+                            "sku": "example-shirt-s",
+                            "position": 2,
+                            "inventory_policy": "deny",
+                            "compare_at_price": "25",
+                            "fulfillment_service": "manual",
+                            "inventory_management": None,
+                            "option1": "Small",
+                            "option2": None,
+                            "option3": None,
+                            "created_at": "2023-06-09T10:19:54+07:00",
+                            "updated_at": "2023-06-09T10:19:54+07:00",
+                            "taxable": True,
+                            "barcode": None,
+                            "grams": 200,
+                            "image_id": None,
+                            "weight": 200.0,
+                            "weight_unit": "g",
+                            "inventory_item_id": 42597128765529,
+                            "inventory_quantity": 0,
+                            "old_inventory_quantity": 0,
+                            "requires_shipping": True,
+                            "admin_graphql_api_id": "gid://shopify/ProductVariant/40502939418713"
+                        },
+                        {
+                            "id": 40502939451481,
+                            "product_id": 7300081909849,
+                            "title": "Medium",
+                            "price": "20",
+                            "sku": "example-shirt-m",
+                            "position": 3,
+                            "inventory_policy": "deny",
+                            "compare_at_price": "25",
+                            "fulfillment_service": "manual",
+                            "inventory_management": "shopify",
+                            "option1": "Medium",
+                            "option2": None,
+                            "option3": None,
+                            "created_at": "2023-06-09T10:19:54+07:00",
+                            "updated_at": "2023-06-09T10:19:54+07:00",
+                            "taxable": True,
+                            "barcode": None,
+                            "grams": 200,
+                            "image_id": None,
+                            "weight": 200.0,
+                            "weight_unit": "g",
+                            "inventory_item_id": 42597128798297,
+                            "inventory_quantity": 0,
+                            "old_inventory_quantity": 0,
+                            "requires_shipping": True,
+                            "admin_graphql_api_id": "gid://shopify/ProductVariant/40502939451481"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 9333169750105,
+                            "product_id": 7300081909849,
+                            "name": "Title",
+                            "position": 1,
+                            "values": [
+                                "Lithograph - Height: 9\" x Width: 12\"",
+                                "Small",
+                                "Medium"
+                            ]
+                        }
+                    ],
+                    "images": [
+                        {
+                            "id": 31643643838553,
+                            "product_id": 7300081909849,
+                            "position": 1,
+                            "created_at": "2023-06-09T10:19:54+07:00",
+                            "updated_at": "2023-06-09T10:19:54+07:00",
+                            "alt": None,
+                            "width": 5000,
+                            "height": 3335,
+                            "src": "https://cdn.shopify.com/s/files/1/0575/8943/2409/products/green-t-shirt.jpg?v=1686280794",
+                            "variant_ids": [],
+                            "admin_graphql_api_id": "gid://shopify/ProductImage/31643643838553"
+                        }
+                    ],
+                    "image": {
+                        "id": 31643643838553,
+                        "product_id": 7300081909849,
+                        "position": 1,
+                        "created_at": "2023-06-09T10:19:54+07:00",
+                        "updated_at": "2023-06-09T10:19:54+07:00",
+                        "alt": None,
+                        "width": 5000,
+                        "height": 3335,
+                        "src": "https://cdn.shopify.com/s/files/1/0575/8943/2409/products/green-t-shirt.jpg?v=1686280794",
+                        "variant_ids": [],
+                        "admin_graphql_api_id": "gid://shopify/ProductImage/31643643838553"
+                    }
                 }
             ]
         })
