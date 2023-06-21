@@ -196,7 +196,6 @@ class ProductsStream(tap_shopifyStream):
             return data_convert
         processed_data = response.json()
         res = preprocess_input(processed_data)
-        print(res)
         yield from extract_jsonpath(self.records_jsonpath, input={"products": res})
 
 
