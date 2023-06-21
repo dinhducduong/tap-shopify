@@ -8,6 +8,12 @@
     "z": {
       "type":[ "string", "null"]
     },
+    "body_html": {
+      "type": ["string", "null"]
+    },
+    "vendor": {
+      "type": ["string", "null"]
+    },
     "product_type": {
       "type": ["string", "null"]
     },
