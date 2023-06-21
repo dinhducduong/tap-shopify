@@ -182,7 +182,7 @@ class ProductsStream(tap_shopifyStream):
     path = "/api/2022-01/products.json"
     records_jsonpath = "$.products[*]"
     primary_keys = ["id"]
-    replication_key = None
+    replication_key = "updated_at"
     schema_filepath = SCHEMAS_DIR / "product.json"
 
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
@@ -192,6 +192,7 @@ class ProductsStream(tap_shopifyStream):
                 data = {
                     'id': item['id'],
                     'sku': item['handle'],
+                    'updated_at': item['updated_at']
                 }
                 data_convert.append(data)
             return data_convert
