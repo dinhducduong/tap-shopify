@@ -64,35 +64,14 @@ class ProductsStream(tap_shopifyStream):
             "products": [
                 {
                     "id": 7300081942617,
-                    "body_html": "",
                     "sku": "Acme",
-                    "product_type": "Pants",
-                    "created_at": "2023-06-09T10:19:56+07:00",
                     "name": "example-pants",
-                    "updated_at": "2023-06-09T10:19:57+07:00",
-                    "published_at": None,
-                    "template_suffix": None,
-                    "status": "draft",
-                    "published_scope": "web",
-                    "tags": "mens pants example",
-                    "admin_graphql_api_id": "gid://shopify/Product/7300081942617",
 
                 },
                 {
                     "id": 7300081909849,
-                    "title": "Example T-Shirt",
-                    "body_html": "",
                     "sku": "Acme",
-                    "product_type": "Shirts",
-                    "created_at": "2023-06-09T10:19:54+07:00",
                     "name": "example-t-shirt",
-                    "updated_at": "2023-06-09T10:19:55+07:00",
-                    "published_at": "2023-06-09T10:19:52+07:00",
-                    "template_suffix": None,
-                    "status": "active",
-                    "published_scope": "web",
-                    "tags": "mens t-shirt example",
-                    "admin_graphql_api_id": "gid://shopify/Product/7300081909849",
                 }
             ]
         })
