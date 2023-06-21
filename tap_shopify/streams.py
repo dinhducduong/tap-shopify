@@ -197,7 +197,28 @@ class ProductsStream(tap_shopifyStream):
             return data_convert
         processed_data = response.json()
         res = preprocess_input(processed_data)
-        yield from extract_jsonpath(self.records_jsonpath, input=res)
+        yield from extract_jsonpath(self.records_jsonpath, input={
+            "products": [
+                [
+                    {
+                        "id": 7300082008153,
+                        "name": "Example Hat",
+                        "sku": "example-hat"
+                    },
+                    {
+                        "id": 7300081942617,
+                        "name": "Example Pants",
+                        "sku": "example-pants"
+                    },
+                    {
+                        "id": 7300081909849,
+                        "name": "Example T-Shirt",
+                        "sku": "example-t-shirt"
+                    }
+                ]
+            ]
+        })
+
 
 class TransactionsStream(tap_shopifyStream):
     """Transactions stream."""
