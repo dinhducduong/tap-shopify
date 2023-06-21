@@ -183,6 +183,7 @@ class ProductsStream(tap_shopifyStream):
     records_jsonpath = "$.products[*]"
     primary_keys = ["id"]
     replication_key = None
+    replication_method = "INCREMENTAL"
     schema_filepath = SCHEMAS_DIR / "product.json"
 
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
@@ -198,25 +199,7 @@ class ProductsStream(tap_shopifyStream):
         processed_data = response.json()
         res = preprocess_input(processed_data)
         yield from extract_jsonpath(self.records_jsonpath, input={
-            "products": [
-                [
-                    {
-                        "id": 7300082008153,
-                        "name": "Example Hat",
-                        "sku": "example-hat"
-                    },
-                    {
-                        "id": 7300081942617,
-                        "name": "Example Pants",
-                        "sku": "example-pants"
-                    },
-                    {
-                        "id": 7300081909849,
-                        "name": "Example T-Shirt",
-                        "sku": "example-t-shirt"
-                    }
-                ]
-            ]
+            "products": res
         })
 
 
