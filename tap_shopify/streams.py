@@ -190,6 +190,7 @@ class ProductsStream(tap_shopifyStream):
         """Parse the response and return an iterator of result rows."""
         # TODO: Parse response body and return a set of records.
         parse_data = response.json()
+        print("parse_data", parse_data)
         data_convert = []
         for item in parse_data['products']:
             data_convert.append({
