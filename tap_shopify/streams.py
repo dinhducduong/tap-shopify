@@ -187,20 +187,18 @@ class ProductsStream(tap_shopifyStream):
     schema_filepath = SCHEMAS_DIR / "product.json"
 
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
-        def preprocess_input(data):
-            data_convert = []
-            for item in data['products']:
-                data_convert.append({
-                    "id": item['id'],
-                    "sku": item['handle'],
-                    "name": item['title']
-                })
-            return data_convert
-        processed_data = response.json()
-        res = preprocess_input(processed_data)
-        yield from extract_jsonpath(self.records_jsonpath, input={
-            "products": res
-        })
+        # def preprocess_input(data):
+        #     data_convert = []
+        #     for item in data['products']:
+        #         data_convert.append({
+        #             "id": item['id'],
+        #             "sku": item['handle'],
+        #             "name": item['title']
+        #         })
+        #     return data_convert
+        # processed_data = response.json()
+        # res = preprocess_input(processed_data)
+        yield from extract_jsonpath(self.records_jsonpath, input=response.json())
 
 
 class TransactionsStream(tap_shopifyStream):
