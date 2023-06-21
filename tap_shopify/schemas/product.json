@@ -5,11 +5,37 @@
     "id": {
       "type": ["integer", "null"]
     },
+    "name": {
+      "type": ["string", "null"]
+    },
     "sku": {
       "type": ["string", "null"]
     },
-    "name": {
-      "type": ["string", "null"]
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "product_sku": {
+            "type": ["string", "null"]
+          },
+          "title": {
+            "type": ["string", "null"]
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }

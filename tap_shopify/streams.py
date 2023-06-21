@@ -50,37 +50,30 @@ class ProductsStream(tap_shopifyStream):
     schema_filepath = SCHEMAS_DIR / "product.json"
 
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
-        # def preprocess_input(data):
-        #     data_convert = []
-        #     for item in data['products']:
-        #         data_convert.append({
-        #             'id': item['id'],
-        #             'skus': item['vendor']
-        #         })
-        #     return data_convert
-        # processed_data = response.json()
-        # res = preprocess_input(processed_data)
-        yield from extract_jsonpath(self.records_jsonpath, input={
-            "products": [
-                {
-                    "id": 7300081942617,
-                    "sku": "Acme",
-                    "created_at": "2023-06-09T10:19:56+07:00",
-                    "name": "example-pants",
-                    "updated_at": "2023-06-09T10:19:57+07:00",
-
-                },
-                {
-                    "id": 7300081909849,
-                    "title": "Example T-Shirt",
-                    "body_html": "",
-                    "sku": "Acme",
-                    "product_type": "Shirts",
-                    "created_at": "2023-06-09T10:19:54+07:00",
-                    "name": "example-t-shirt",
-                    "updated_at": "2023-06-09T10:19:55+07:00",
+        def preprocess_input(data):
+            data_convert = []
+            for item in processed_data['products']:
+                data = {
+                    "id": item['id'],
+                    "name": item['title'],
+                    "sku": item['handle'],
+                    "created_at": item['created_at'],
+                    "updated_at": item['updated_at'],
+                    "options": [],
                 }
-            ]
+                for variant in item['variants']:
+                    data['options'].append({
+                        "product_sku": variant['sku'],
+                        "title": variant['title'],
+                        "created_at": variant['created_at'],
+                        "updated_at": variant['updated_at'],
+                    })
+                data_convert.append(data)
+            return data_convert
+        processed_data = response.json()
+        res = preprocess_input(processed_data)
+        yield from extract_jsonpath(self.records_jsonpath, input={
+            "products": res
         })
 
 
