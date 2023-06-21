@@ -188,8 +188,9 @@ class ProductsStream(tap_shopifyStream):
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
         """Parse the response and return an iterator of result rows."""
         # TODO: Parse response body and return a set of records.
+        parse_data = response.json()
         data_convert = []
-        for item in response['products']:
+        for item in parse_data['products']:
             data_convert.append({
                 "id": item['id'],
                 "name": item['title'],
@@ -198,7 +199,7 @@ class ProductsStream(tap_shopifyStream):
         
         # record['products'] = data_convert
         print("recordrecordrecordrecord",data_convert)
-        yield from extract_jsonpath(self.records_jsonpath, input=response.json())
+        yield from extract_jsonpath(self.records_jsonpath, input=parse_data)
 
 
 class TransactionsStream(tap_shopifyStream):
