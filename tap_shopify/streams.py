@@ -197,7 +197,7 @@ class ProductsStream(tap_shopifyStream):
         #     })
         
         # record['products'] = data_convert
-        print("recordrecordrecordrecord",record)
+        print("recordrecordrecordrecord",record.json())
         yield from extract_jsonpath(self.records_jsonpath, input=record)
 
 
