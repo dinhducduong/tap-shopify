@@ -65,13 +65,20 @@ class ProductsStream(tap_shopifyStream):
                 {
                     "id": 7300081942617,
                     "sku": "Acme",
+                    "created_at": "2023-06-09T10:19:56+07:00",
                     "name": "example-pants",
+                    "updated_at": "2023-06-09T10:19:57+07:00",
 
                 },
                 {
                     "id": 7300081909849,
+                    "title": "Example T-Shirt",
+                    "body_html": "",
                     "sku": "Acme",
+                    "product_type": "Shirts",
+                    "created_at": "2023-06-09T10:19:54+07:00",
                     "name": "example-t-shirt",
+                    "updated_at": "2023-06-09T10:19:55+07:00",
                 }
             ]
         })
