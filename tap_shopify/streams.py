@@ -195,10 +195,10 @@ class ProductsStream(tap_shopifyStream):
                 "sku": item['handle'],
                 "options": [],
             }
-            for it in item['variants']:
+            for variant in item['variants']:
                 data['options'].append({
-                    "product_sku": it['sku'],
-                    "title": it['title']
+                    "product_sku": variant['sku'],
+                    "title": variant['title']
                 })
             data_convert.append(data)
         yield from extract_jsonpath(self.records_jsonpath, input=data_convert)
