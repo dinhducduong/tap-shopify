@@ -188,119 +188,18 @@ class ProductsStream(tap_shopifyStream):
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
         """Parse the response and return an iterator of result rows."""
         # TODO: Parse response body and return a set of records.
-        # parse_data = response.json()
-        # data_convert = []
-        # for item in parse_data['products']:
-        #     data_convert.append({
-        #         "id": item['id'],
-        #         "name": item['title'],
-        #         "sku": item['handle']
-        #     })
-
-        # parse_data['products'] = data_convert
-        # print("recordrecordrecordrecord", parse_data)
-        yield from extract_jsonpath(self.records_jsonpath, input=[
-            {
-                "type": "SCHEMA",
-                "stream": "products",
-                "schema": {
-                    "properties": {
-                        "id": {
-                            "type": [
-                                "integer",
-                                "null"
-                            ]
-                        },
-                        "name": {
-                            "type": [
-                                "string",
-                                "null"
-                            ]
-                        },
-                        "sku": {
-                            "type": [
-                                "string",
-                                "null"
-                            ]
-                        }
-                    },
-                    "type": "object"
-                },
-                "key_properties": [
-                    "id"
-                ],
-                "bookmark_properties": [
-                    "updated_at"
-                ]
-            },
-            {
-                "products": [
-                    [
-                        {
-                            "id": 7300082008153,
-                            "name": "Example Hat",
-                            "sku": "example-hat"
-                        },
-                        {
-                            "id": 7300081942617,
-                            "name": "Example Pants",
-                            "sku": "example-pants"
-                        },
-                        {
-                            "id": 7300081909849,
-                            "name": "Example T-Shirt",
-                            "sku": "example-t-shirt"
-                        }
-                    ]
-                ]
-            },
-            {
-                "type": "RECORD",
-                "stream": "products",
-                "record": {
-                    "id": 7300082008153,
-                    "name": "Example Hat",
-                    "sku": "example-hat"
-                },
-                "time_extracted": "2023-06-21T04:12:32.785040Z"
-            },
-            {
-                "type": "STATE",
-                "value": {
-                    "bookmarks": {
-                        "products": {
-                            "replication_key_signpost": "2023-06-21T04:12:32.368460+00:00",
-                            "starting_replication_value": None,
-                            "progress_markers": {
-                                "Note": "Progress is not resumable if interrupted.",
-                                "replication_key": "updated_at",
-                                "replication_key_value": "2023-06-09T11:04:31+07:00"
-                            }
-                        }
-                    }
-                }
-            },
-            {
-                "type": "RECORD",
-                "stream": "products",
-                "record": {
-                    "id": 7300081942617,
-                    "name": "Example Pants",
-                    "sku": "example-pants"
-                },
-                "time_extracted": "2023-06-21T04:12:32.785425Z"
-            },
-            {
-                "type": "RECORD",
-                "stream": "products",
-                "record": {
-                    "id": 7300081909849,
-                    "name": "Example T-Shirt",
-                    "sku": "example-t-shirt"
-                },
-                "time_extracted": "2023-06-21T04:12:32.785723Z"
-            }
-        ])
+        parse_data = response.json()
+        data_convert = []
+        for item in parse_data['products']:
+            data_convert.append({
+                "id": item['id'],
+                "name": item['title'],
+                "sku": item['handle']
+            })
+        
+        parse_data['products'] = data_convert
+        print("recordrecordrecordrecord",data_convert)
+        yield from extract_jsonpath(self.records_jsonpath, input=data_convert)
 
 
 class TransactionsStream(tap_shopifyStream):
