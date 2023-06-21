@@ -185,7 +185,7 @@ class ProductsStream(tap_shopifyStream):
     replication_method = "INCREMENTAL"
     schema_filepath = SCHEMAS_DIR / "product.json"
 
-    def parse_response(self, record: dict, context: Optional[dict]) -> dict:
+    def parse_response(self, record: dict) -> dict:
         print("recordrecordrecordrecord", record)
         yield from extract_jsonpath(self.records_jsonpath, input=record)
 
