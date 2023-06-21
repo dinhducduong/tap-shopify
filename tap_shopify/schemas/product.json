@@ -7,9 +7,6 @@
     },
     "name": {
       "type": ["string", "null"]
-    },
-    "sku": {
-      "type": ["string", "null"]
     }
   }
 }
