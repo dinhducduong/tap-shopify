@@ -1,6 +1,7 @@
 """Stream type classes for tap-shopify."""
 
 from decimal import Decimal
+import json
 from pathlib import Path
 from typing import Any, Dict, Iterable, Optional
 from urllib.parse import parse_qsl, urlsplit
@@ -199,7 +200,7 @@ class ProductsStream(tap_shopifyStream):
         
         parse_data['products'] = data_convert
         print("recordrecordrecordrecord", parse_data)
-        yield from extract_jsonpath(self.records_jsonpath, input=parse_data.json())
+        yield from extract_jsonpath(self.records_jsonpath, input=json.dumps(parse_data))
 
 
 class TransactionsStream(tap_shopifyStream):
