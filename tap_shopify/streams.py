@@ -82,7 +82,7 @@ class CustomCollections(tap_shopifyStream):
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
         def preprocess_input(data):
             data_convert = []
-            for item in data['products']:
+            for item in data['custom_collections']:
                 raw_data = {
                     "id": item['id'],
                     "name": item['title'],
