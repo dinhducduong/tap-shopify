@@ -92,7 +92,7 @@ class CustomCollections(tap_shopifyStream):
         processed_data = response.json()
         res = preprocess_input(processed_data)
         yield from extract_jsonpath(self.records_jsonpath, input={
-            "products": res
+            "custom_collections": res
         })
 
 
