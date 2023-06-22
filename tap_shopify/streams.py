@@ -75,8 +75,6 @@ class CustomCollections(tap_shopifyStream):
     path = "/api/2022-01/custom_collections.json"
     records_jsonpath = "$.custom_collections[*]"
     primary_keys = ["id"]
-    replication_key = "updated_at"
-    replication_method = "INCREMENTAL"
     schema_filepath = SCHEMAS_DIR / "custom_collection.json"
 
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
