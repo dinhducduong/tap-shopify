@@ -84,7 +84,6 @@ class CustomCollections(tap_shopifyStream):
                 raw_data = {
                     "id": item['id'],
                     "name": item['title'],
-                    "created_at": item['published_at'],
                     "updated_at": item['updated_at'],
                     "source": "shopify"
                 }
